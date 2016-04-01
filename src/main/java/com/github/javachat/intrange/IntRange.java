@@ -43,13 +43,12 @@ public final class IntRange
 
         upperCheck = upperBoundType == BoundType.CLOSED
             ? value -> value <= upperBound
-            : value -> value > upperBound;
+            : value -> value < upperBound;
     }
 
     public boolean contains(final int value)
     {
-        // TODO
-        return false;
+        return lowerCheck.test(value) && upperCheck.test(value);
     }
 
     public boolean encloses(final IntRange other)
