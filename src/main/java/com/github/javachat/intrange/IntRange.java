@@ -60,8 +60,8 @@ public final class IntRange
     @Override
     public int hashCode()
     {
-        return lowerBound ^ upperBound
-            + 31 * Objects.hash(lowerBoundType, upperBoundType);
+        return Objects.hash(lowerBound, lowerBoundType, upperBound,
+            upperBoundType);
     }
 
     @SuppressWarnings("OverlyComplexBooleanExpression")
