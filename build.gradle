@@ -29,6 +29,7 @@ targetCompatibility = javaVersion; // defaults to sourceCompatibility
  */
 
 dependencies {
+    compileOnly(group: "com.google.guava", name: "guava", version: "19.0");
     testCompile(group: "org.testng", name: "testng", version: "[6.9.9,)") {
         exclude(group: "org.apache.ant", module: "ant");
         exclude(group: "com.google.inject", module: "guice");
@@ -41,6 +42,7 @@ dependencies {
 }
 
 javadoc.options.links("http://docs.oracle.com/javase/8/docs/api/");
+javadoc.options.links("http://google.github.io/guava/releases/19.0/api/docs/");
 
 /*
  * Repositories to use
