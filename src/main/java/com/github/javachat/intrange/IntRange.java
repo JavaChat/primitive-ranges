@@ -85,7 +85,7 @@ public final class IntRange
         @SuppressWarnings("StringBufferReplaceableByString")
         final StringBuilder sb = new StringBuilder();
 
-        sb.append(lowerBoundType == BoundType.CLOSED ? "[" : ")");
+        sb.append(lowerBoundType == BoundType.CLOSED ? "[" : "(");
         sb.append(lowerBound).append("..").append(upperBound);
         sb.append(upperBoundType == BoundType.CLOSED ? "]" : ")");
 
