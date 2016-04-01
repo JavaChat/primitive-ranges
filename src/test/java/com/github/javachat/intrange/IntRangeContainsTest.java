@@ -17,4 +17,18 @@ public final class IntRangeContainsTest
         assertThat(range.contains(2)).isFalse();
         assertThat(range.contains(0)).isFalse();
     }
+
+    @Test
+    public void rangeTest1()
+    {
+        final IntRange range = new IntRange(-7, BoundType.OPEN, 5,
+            BoundType.OPEN);
+
+        assertThat(range.contains(3)).isTrue();
+        assertThat(range.contains(-7)).isFalse();
+        assertThat(range.contains(5)).isFalse();
+        assertThat(range.contains(-6)).isTrue();
+        assertThat(range.contains(4)).isTrue();
+        assertThat(range.contains(0)).isTrue();
+    }
 }
