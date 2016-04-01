@@ -19,4 +19,15 @@ public final class IntRangeBuildTest
             assertThat(e).hasMessage(msg);
         }
     }
+
+    @Test
+    public void boundChecks2()
+    {
+        try {
+            new IntRange(3, BoundType.OPEN, 3, BoundType.OPEN);
+            shouldHaveThrown(IllegalArgumentException.class);
+        } catch (IllegalArgumentException e) {
+            assertThat(e).hasMessage(IntRange.ILLEGAL_OPEN_RANGE);
+        }
+    }
 }

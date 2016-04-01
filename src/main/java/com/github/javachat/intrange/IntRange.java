@@ -10,6 +10,9 @@ public final class IntRange
     static final String ILLEGAL_BOUNDS = "lower bound %d must be less than or"
         + " equal to upper bound %d";
 
+    static final String ILLEGAL_OPEN_RANGE = "when specifying an open range, "
+        + "the lower bound must be strictly less than the upper bound";
+
     private final BoundType lowerBoundType;
     private final BoundType upperBoundType;
     private final int lowerBound;
@@ -23,6 +26,11 @@ public final class IntRange
         if (Integer.compare(lowerBound, upperBound) > 0)
             throw new IllegalArgumentException(String.format(ILLEGAL_BOUNDS,
                 lowerBound, upperBound));
+
+        if (lowerBound == upperBound
+            && lowerBoundType == BoundType.OPEN
+            && lowerBoundType == upperBoundType)
+            throw new IllegalArgumentException(ILLEGAL_OPEN_RANGE);
 
         this.lowerBound = lowerBound;
         this.lowerBoundType = Objects.requireNonNull(lowerBoundType);
