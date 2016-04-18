@@ -1,6 +1,7 @@
 package com.github.javachat.doublerange;
 
 import com.github.javachat.common.BoundType;
+import com.github.javachat.common.Constants;
 import org.testng.annotations.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -15,7 +16,7 @@ public class DoubleRangeIntersectionTest {
             lower.intersection(higher);
             shouldHaveThrown(IllegalArgumentException.class);
         } catch (IllegalArgumentException e) {
-            String msg = String.format(DoubleRange.NO_CONNECTION, lower, higher);
+            String msg = String.format(Constants.NO_CONNECTION, lower, higher);
             assertThat(e).hasMessage(msg);
         }
     }

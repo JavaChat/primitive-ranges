@@ -1,6 +1,7 @@
 package com.github.javachat.doublerange;
 
 import com.github.javachat.common.BoundType;
+import com.github.javachat.common.Constants;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
@@ -39,7 +40,6 @@ public class DoubleRange {
     static final String ILLEGAL_OPEN_RANGE = "when specifying an open range, "
             + "the lower bound must be strictly less than the upper bound";
     static final String BOUNDARY_IS_NAN = "No boundary can be NaN";
-    static final String NO_CONNECTION = "Cannot create intersection from two unconnected ranges (%s and %s)";
 
     // Formatting specifics
     static final DecimalFormatSymbols TO_STRING_FORMAT_SYMBOLS;
@@ -48,7 +48,7 @@ public class DoubleRange {
     static {
         // Better to have consistent formatting symbols.
         TO_STRING_FORMAT_SYMBOLS = DecimalFormatSymbols.getInstance(Locale.US);
-        TO_STRING_FORMAT_SYMBOLS.setInfinity("Infinity");
+        TO_STRING_FORMAT_SYMBOLS.setInfinity(Constants.INFINITY_REPRESENTATION);
         TO_STRING_FORMAT = new DecimalFormat("#0.0#####", TO_STRING_FORMAT_SYMBOLS);
     }
 
@@ -309,7 +309,7 @@ public class DoubleRange {
      */
     public DoubleRange intersection(DoubleRange other) {
         if (!this.isConnected(other)) {
-            throw new IllegalArgumentException(String.format(NO_CONNECTION, this, other));
+            throw new IllegalArgumentException(String.format(Constants.NO_CONNECTION, this, other));
         }
 
         return new DoubleRange(
