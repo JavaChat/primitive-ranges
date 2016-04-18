@@ -6,11 +6,9 @@ import org.testng.annotations.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.shouldHaveThrown;
 
-public final class IntRangeBuildTest
-{
+public final class IntRangeBuildTest {
     @Test
-    public void boundsCheck1()
-    {
+    public void boundsCheck1() {
         try {
             new IntRange(3, BoundType.CLOSED, 2, BoundType.CLOSED);
             shouldHaveThrown(IllegalArgumentException.class);
@@ -21,8 +19,7 @@ public final class IntRangeBuildTest
     }
 
     @Test
-    public void boundChecks2()
-    {
+    public void boundChecks2() {
         try {
             new IntRange(3, BoundType.OPEN, 3, BoundType.OPEN);
             shouldHaveThrown(IllegalArgumentException.class);
