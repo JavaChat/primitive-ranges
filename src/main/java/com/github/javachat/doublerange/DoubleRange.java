@@ -163,7 +163,7 @@ public class DoubleRange {
         return DoubleRange.closed(copy[0], copy[copy.length - 1]);
     }
 
-     /**
+    /**
      * @see <a href="http://google.github.io/guava/releases/19.0/api/docs/com/google/common/collect/Range.html#all()">Guava JavaDoc</a>
      */
     public static DoubleRange all() {
@@ -187,8 +187,8 @@ public class DoubleRange {
 
         this.lowerBound = lowerBound;
         this.upperBound = upperBound;
-        this.lowerBoundType = lowerBoundType;
-        this.upperBoundType = upperBoundType;
+        this.lowerBoundType = Objects.requireNonNull(lowerBoundType);
+        this.upperBoundType = Objects.requireNonNull(upperBoundType);
 
         if (Double.isInfinite(lowerBound)) {
             lowerCheck = value -> true;

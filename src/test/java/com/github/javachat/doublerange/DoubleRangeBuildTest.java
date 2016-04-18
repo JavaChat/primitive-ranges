@@ -68,4 +68,14 @@ public class DoubleRangeBuildTest {
     public void testEncloseAllFactoryMethodEmptyArray() {
         DoubleRange.encloseAll();
     }
+
+    @Test(expectedExceptions = NullPointerException.class)
+    public void testNullLowerBoundNotAccepted() {
+        new DoubleRange(0.0, null, 1.0, BoundType.CLOSED);
+    }
+
+    @Test(expectedExceptions = NullPointerException.class)
+    public void testNullUpperBoundNotAccepted() {
+        new DoubleRange(0.0, BoundType.OPEN, 1.0, null);
+    }
 }
