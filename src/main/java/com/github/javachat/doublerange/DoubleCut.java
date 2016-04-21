@@ -1,13 +1,14 @@
 package com.github.javachat.doublerange;
 
 import com.github.javachat.common.BoundType;
+import com.google.common.primitives.Doubles;
 
 /**
  * Helper class {@link DoubleRange} to represent a combination of value and boundary type.
  * <p>
  * This class is used in cases where a boundary value and type from two ranges can be chosen.
  */
-class DoubleCut {
+class DoubleCut implements Comparable<DoubleCut> {
     private double value;
     private BoundType boundType;
 
@@ -38,5 +39,10 @@ class DoubleCut {
 
     static DoubleCut max(DoubleCut first, DoubleCut second) {
         return (first.value >= second.value) ? first : second;
+    }
+
+    @Override
+    public int compareTo(DoubleCut o) {
+        return Doubles.compare(value, o.value);
     }
 }

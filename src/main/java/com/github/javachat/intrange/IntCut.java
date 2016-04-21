@@ -1,13 +1,14 @@
 package com.github.javachat.intrange;
 
 import com.github.javachat.common.BoundType;
+import com.google.common.primitives.Ints;
 
 /**
  * Helper class {@link IntRange} to represent a combination of value and boundary type.
  * <p>
  * This class is used in cases where a boundary value and type from two ranges can be chosen.
  */
-class IntCut {
+class IntCut implements Comparable<IntCut> {
     private int value;
     private BoundType boundType;
     private boolean isBounded;
@@ -45,4 +46,10 @@ class IntCut {
     static IntCut max(IntCut first, IntCut second) {
         return (first.value >= second.value) ? first : second;
     }
+
+    @Override
+    public int compareTo(IntCut o) {
+        return Ints.compare(this.value, o.value);
+    }
+
 }
