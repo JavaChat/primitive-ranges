@@ -293,9 +293,10 @@ public final class IntRange {
     public String toString() {
         @SuppressWarnings("StringBufferReplaceableByString")
         final StringBuilder sb = new StringBuilder();
-
         sb.append(lowerBoundType == BoundType.CLOSED ? "[" : "(");
-        sb.append(lowerBound).append("..").append(upperBound);
+        sb.append(hasLowerBound ? lowerBound : "-" + Constants.INFINITY_REPRESENTATION);
+        sb.append("..");
+        sb.append(hasUpperBound ? upperBound : Constants.INFINITY_REPRESENTATION);
         sb.append(upperBoundType == BoundType.CLOSED ? "]" : ")");
 
         return sb.toString();
