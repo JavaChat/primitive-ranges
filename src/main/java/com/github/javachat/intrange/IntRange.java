@@ -248,6 +248,16 @@ public final class IntRange {
         );
     }
 
+    /**
+     * @see <a href="http://google.github.io/guava/releases/19.0/api/docs/com/google/common/collect/Range.html#intersection(com.google.common.collect.Range)">Guava JavaDoc</a>
+     */
+    public IntRange span(IntRange other) {
+        return new IntRange(
+                IntCut.min(this.toLowerCut(), other.toLowerCut()),
+                IntCut.max(this.toUpperCut(), other.toUpperCut())
+        );
+    }
+
     private IntCut toLowerCut() {
         return new IntCut(lowerBound, lowerBoundType, hasLowerBound);
     }
