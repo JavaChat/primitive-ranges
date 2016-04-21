@@ -329,11 +329,11 @@ public class DoubleRange {
         );
     }
 
-    private DoubleCut toLowerCut() {
+    DoubleCut toLowerCut() {
         return new DoubleCut(lowerBound, lowerBoundType);
     }
 
-    private DoubleCut toUpperCut() {
+    DoubleCut toUpperCut() {
         return new DoubleCut(upperBound, upperBoundType);
     }
 

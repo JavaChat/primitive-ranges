@@ -258,11 +258,11 @@ public final class IntRange {
         );
     }
 
-    private IntCut toLowerCut() {
+    IntCut toLowerCut() {
         return new IntCut(lowerBound, lowerBoundType, hasLowerBound);
     }
 
-    private IntCut toUpperCut() {
+    IntCut toUpperCut() {
         return new IntCut(upperBound, upperBoundType, hasUpperBound);
     }
 
