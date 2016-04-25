@@ -1,7 +1,6 @@
 package com.github.javachat.intrange;
 
 import com.github.javachat.common.BoundType;
-import com.google.common.primitives.Ints;
 
 /**
  * Helper class {@link IntRange} to represent a combination of value and boundary type.
@@ -49,7 +48,7 @@ class IntCut implements Comparable<IntCut> {
 
     @Override
     public int compareTo(IntCut o) {
-        return Ints.compare(this.value, o.value);
+        return Integer.compare(this.value, o.value);
     }
 
 }
